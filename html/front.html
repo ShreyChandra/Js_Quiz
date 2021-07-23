@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <title>Quiz Game</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="navbar_list">
+          <li id="highScoreClickable">View HighScores</li>
+          <li>Time:<span id="timer">0</span></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2 class="container" id="score"></h2>
+      <div class="display_box container">
+        This a fun Quiz for Web Developers to test out their knowledge. All
+        questions have four choices and only one of them is correct ! On
+        pressing the wrong button 15 seconds would be deducted from the time.
+      </div>
+      <div class="startQuizWrapper">
+        <button class="container" id="startQuiz">Start Quiz</button>
+      </div>
+      <ul class="button_bag container" id="answerWrapper"></ul>
+    </main>
+    <hr class="container" />
+    <footer class="container"><p id="resultP"></p></footer>
+    <script src="../js/front.js"></script>
+  </body>
+</html>
