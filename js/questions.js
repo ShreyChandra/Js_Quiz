@@ -12,8 +12,8 @@ const timeCountdown = () => {
     //screen with score is shown, with space to enter player's name
     clearInterval(looper);
     timer.innerText = "0";
-    removeElements(document.querySelectorAll(".buttons"));
-    finalScreen();
+    // removeElements(document.querySelectorAll(".buttons"));
+    location.assign("/html/score.html"); // finalScreen();
   }
 };
 
@@ -123,7 +123,7 @@ ulEle.addEventListener("click", (e) => {
       removeElements(document.querySelectorAll(".buttons"));
       score += 10;
       if (currentQuestionNumber === quizQuestions.length - 1) {
-        location.assign("/html/score.html");
+        location.assign("/html/score.html?score=" + score);
         // finalScreen();
       } else {
         currentQuestionNumber++;

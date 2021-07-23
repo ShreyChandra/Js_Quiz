@@ -10,23 +10,21 @@
     <header>
       <nav class="navbar">
         <ul class="navbar_list">
-          <li id="highScoreClickable">View HighScores</li>
+          <li id="highScoreClickable"></li>
           <li>Time:<span id="timer">0</span></li>
         </ul>
       </nav>
     </header>
     <main>
       <div class="container">
-        <h2 id="score"></h2>
-        <div>
-          <label for="playerName"><b>Enter your Name:</b></label>
-          <input type="text" id="playerName" />
-          <button class="buttons" id="submitButton">Submit</button>
-        </div>
+        <h2 id="score">Score Board</h2>
+        <hr class="container" />
+        <table id="scoreTable"></table>
+        <button class="buttons" id="restartQuiz">Restart Quiz</button>
       </div>
     </main>
     <hr class="container" />
     <footer class="container"><p id="resultP"></p></footer>
-    <script src="../js/score.js"></script>
+    <script src="../js/highScore.js"></script>
   </body>
 </html>
