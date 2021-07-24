@@ -1,6 +1,14 @@
 let timer = document.querySelector("#timer");
 let time = 60;
 let looper;
+
+let question = document.querySelector(".display_box"),
+  ulEle = document.querySelector("#answerWrapper"),
+  resultText = document.querySelector("#resultP"),
+  highScoreButton = document.querySelector("#highScoreClickable"),
+  score = 0,
+  currentQuestionNumber = 0; //tracks current question number
+
 timer.innerText = "60"; //setting the initial value of timer as 60 seconds
 
 //Countdown timer function reduces 1 sec from the counter every second
@@ -13,11 +21,15 @@ const timeCountdown = () => {
     clearInterval(looper);
     timer.innerText = "0";
     // removeElements(document.querySelectorAll(".buttons"));
-    location.assign("/html/score.html"); // finalScreen();
+    location.assign("/html/score.html?score=" + score); // finalScreen();
   }
 };
 
 looper = setInterval(timeCountdown, 1000);
+
+highScoreButton.addEventListener("click", () =>
+  location.assign("/html/highScore.html")
+);
 
 //question array with objects which have key:values (questions & answers)
 let quizQuestions = [
@@ -86,12 +98,6 @@ let quizQuestions = [
   },
 ];
 
-let question = document.querySelector(".display_box"),
-  ulEle = document.querySelector("#answerWrapper"),
-  resultText = document.querySelector("#resultP"),
-  score = 0,
-  currentQuestionNumber = 0; //tracks current question number
-
 const loadQuestion = (questionNumber) => {
   currentQuestionNumber = questionNumber;
   question.innerText = quizQuestions[currentQuestionNumber].question;
@@ -117,17 +123,18 @@ ulEle.addEventListener("click", (e) => {
   if (e.target.nodeName === "LI") {
     if (e.target.dataset.correct === "true") {
       resultText.innerText = "Right";
-      setTimeout(() => {
-        resultText.remove();
-      }, 500);
-      removeElements(document.querySelectorAll(".buttons"));
+
       score += 10;
       if (currentQuestionNumber === quizQuestions.length - 1) {
         location.assign("/html/score.html?score=" + score);
         // finalScreen();
       } else {
         currentQuestionNumber++;
-        loadQuestion(currentQuestionNumber);
+        setTimeout(() => {
+          resultText.innerText = "";
+          removeElements(document.querySelectorAll(".buttons"));
+          loadQuestion(currentQuestionNumber);
+        }, 500);
       }
     } else {
       resultText.innerText = "Wrong";

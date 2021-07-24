@@ -85,3 +85,7 @@ body {
 footer {
   color: grey;
 }
+
+hr {
+  margin: 20px 0;
+}
