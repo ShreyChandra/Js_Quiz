@@ -21,14 +21,14 @@ const timeCountdown = () => {
     clearInterval(looper);
     timer.innerText = "0";
     // removeElements(document.querySelectorAll(".buttons"));
-    location.assign("/html/score.html?score=" + score); // finalScreen();
+    location.assign("/Js_Quiz/html/score.html?score=" + score); // finalScreen();
   }
 };
 
 looper = setInterval(timeCountdown, 1000);
 
 highScoreButton.addEventListener("click", () =>
-  location.assign("/html/highScore.html")
+  location.assign("/Js_Quiz/html/highScore.html")
 );
 
 //question array with objects which have key:values (questions & answers)
@@ -126,7 +126,7 @@ ulEle.addEventListener("click", (e) => {
 
       score += 10;
       if (currentQuestionNumber === quizQuestions.length - 1) {
-        location.assign("/html/score.html?score=" + score);
+        location.assign("/Js_Quiz/html/score.html?score=" + score);
         // finalScreen();
       } else {
         currentQuestionNumber++;

@@ -16,5 +16,5 @@ allUsers.forEach((element) => {
 });
 
 restart.addEventListener("click", () => {
-  location.assign("/html/front.html");
+  location.assign("/Js_Quiz/html/front.html");
 });

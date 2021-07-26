@@ -7,7 +7,7 @@ let scoreScreen = document.querySelector("#score"),
 scoreScreen.innerText = `Your Score is ${score} !!`;
 
 highScoreButton.addEventListener("click", () =>
-  location.assign("/html/highScore.html")
+  location.assign("/Js_Quiz/html/highScore.html")
 );
 
 submitButton.addEventListener("click", () => {
@@ -19,5 +19,5 @@ submitButton.addEventListener("click", () => {
   temp.score = score;
   user.push(temp);
   localStorage.setItem("users", JSON.stringify(user));
-  location.assign("/html/highScore.html");
+  location.assign("/Js_Quiz/html/highScore.html");
 });
